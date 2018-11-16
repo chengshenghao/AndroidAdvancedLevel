@@ -2,25 +2,30 @@
 ## 第一章 事件传递
 
 ### 1.1触摸事件的类型
-        MotionEvent.ACTION_DOWN:
-        MotionEvent.ACTION_MOVE:
-        MotionEvent.ACTION_UP:
+*        MotionEvent.ACTION_DOWN:
+*        MotionEvent.ACTION_MOVE:
+*        MotionEvent.ACTION_UP:
 ### 1.2事件传递的三个阶段
-        分发
+* 分发
 
+    ```javascript
             @Override
             public boolean dispatchTouchEvent(MotionEvent event) {
             //方法返回true，当前界面消费时间，返回super.dispatchTouchEvent(event)表示继续分发改时间
                 return super.dispatchTouchEvent(event);
             }
+    ```
 
-        拦截
-        消费:返回True消费
+* 拦截
+* 消费:返回True消费
+    ```javascript
           @Override
             public boolean onTouchEvent(MotionEvent event) {
                 return super.onTouchEvent(event);
             }
+   ```
 # 第四章 Support Annotation Library
+
             进入正题，Support Annotation Library是从Android Support Library 19.1开始引入的一个全新的函数包，
         它包含一系列有用的元注解，用来帮助开发者在编译期间发现可能存在的bug，Support Library本身也使用
         Annotation Library 提供的注解来完善自身的代码质量，Android Studio 提供可视化的交互以便开发者发现问题。
@@ -32,8 +37,9 @@
         1.Nullness
               -@Nullable作用于函数参数或返回值，标记参数或返回值为可以空。
               -@NonNull作用于函数参数或返回值，标记参数或返回值为不能为空。
-          @Override
-            protected void onCreate(Bundle savedInstanceState) {
+
+   ```javascript
+              protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
                 setContentView(R.layout.activity_main);
                 ((MyTextView) findViewById(R.id.my_textview)).setOnClickListener(this);
@@ -45,5 +51,5 @@
             private void test(@NonNull String str) {
                 Log.i(TAG, "test: " + str);
             }
-        ---------------------------------------------------------
-        - [更多用法参看](https://blog.csdn.net/sw5131899/article/details/53842362)
+   ```
+* [更多用法参看](https://blog.csdn.net/sw5131899/article/details/53842362)
